@@ -88,3 +88,16 @@ export const logout = async (req,res)=>{
     }
 };
 
+export const updateUser = async(req,res)=>{
+  try {
+    const { fullname } = req.body;
+    const user = await User.findByIdAndUpdate(
+        req.user._id,
+        { fullname },
+        { returnDocument: "after" }
+    ).select("-password");
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({message:error.message});
+  }
+};

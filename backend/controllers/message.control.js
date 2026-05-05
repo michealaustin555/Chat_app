@@ -63,9 +63,16 @@ export const getMessage = async(req,res)=>{
     } catch (error) {
         console.log("Error in getMessage controller",error.message);
         res.status(500).json({message:error.message});
+    }  
+};
+
+
+export const deleteMessage = async (req,res)=>{
+    try {
+        const { id } = req.params;
+        await Message.findByIdAndDelete(id);
+        res.status(200).json({message:"message deleted succesfully"});
+    } catch (error) {
+        res.status(500).json({message:error.message});
     }
-
-    
-
-
-}
+};
