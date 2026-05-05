@@ -9,10 +9,13 @@ Some Features:
 
 Setup .env file
 
-PORT=...
-MONGO_DB_URI=...
-JWT_SECRET=...
-NODE_ENV=...
+PORT=5000
+MONGO_DB_URI=_my_DB_URL
+JWT_SECRET=mysecretket4321
+
+
+Install dependencies
+npm install
 
 
 Build the app
